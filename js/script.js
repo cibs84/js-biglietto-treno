@@ -8,20 +8,16 @@
 // INPUT - RACCOLTA DATI E CREAZIONE DELLE VARIABILI
 // Chiedo all'utente di inserire il numero di chilometri che vuole percorrere
 const kmTrip = parseInt( prompt('Inserisci i Km che vuoi percorrere') );
-console.log('kmTrip = ' + kmTrip);
 
 // Chiedo all'utente di inserire la sua età
 const ageUser = parseInt( prompt('Inserisci la tua età') );
-console.log('ageUser = ' + ageUser);
 
 // Creo costante per tariffa al kilometro
 const ratePerKm = 0.21;
-console.log('ratePerKm = ' + ratePerKm);
 
 // LOGICA - CALCOLO DEL PREZZO CON EVENTUALE SCONTO E ARROTONDAMENTO AL CENTESIMO DI EURO
 // Calcolo del prezzo pieno del biglietto moltiplicando 'i chilometri da percorrere' per 'la tariffa al chilometro'
 let ticketPrice = kmTrip * ratePerKm;
-console.log('ticketPrice = ' + ticketPrice);
 
 // Calcolo dei prezzi scontati in base all'età
 // SE l'età è inferiore a 18 ALLORA sottrai al prezzo piano del biglietto lo sconto del 20%
