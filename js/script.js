@@ -5,27 +5,35 @@
 // va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-// RACCOLTA DATI E CREAZIONE DELLE VARIABILI
+// INPUT - RACCOLTA DATI E CREAZIONE DELLE VARIABILI
 // Chiedo all'utente di inserire il numero di chilometri che vuole percorrere
-let kmTrip = parseInt( prompt('Inserisci i Km che vuoi percorrere') );
-console.log(kmTrip);
+const kmTrip = parseInt( prompt('Inserisci i Km che vuoi percorrere') );
+console.log('kmTrip = ' + kmTrip);
 
 // Chiedo all'utente di inserire la sua età
-let ageUser = parseInt( prompt('Inserisci la tua età') );
-console.log(ageUser);
+const ageUser = parseInt( prompt('Inserisci la tua età') );
+console.log('ageUser = ' + ageUser);
 
-// Creo variabile per tariffa al kilometro
+// Creo costante per tariffa al kilometro
 const ratePerKm = 0.21;
-console.log(ratePerKm);
+console.log('ratePerKm = ' + ratePerKm);
 
-// LOGICA
-// Calcolo del prezzo pieno del biglietto moltiplicando kmTrip per ratePerKm
-
+// LOGICA - CALCOLO DEL PREZZO CON EVENTUALE SCONTO E ARROTONDAMENTO AL CENTESIMO DI EURO
+// Calcolo del prezzo pieno del biglietto moltiplicando 'i chilometri da percorrere' per 'la tariffa al chilometro'
+let ticketPrice = kmTrip * ratePerKm;
+console.log('ticketPrice = ' + ticketPrice);
 
 // Calcolo dei prezzi scontati in base all'età
 // SE l'età è inferiore a 18 ALLORA sottrai al prezzo piano del biglietto lo sconto del 20%
 // SE l'età è superiore a 65 ALLORA sottrai al prezzo piano del biglietto lo sconto del 40%
+if (ageUser < 18) {
+    ticketPrice = ticketPrice * 0.8;
+} else if (ageUser > 65) {
+    ticketPrice = ticketPrice * 0.6;
+}
 
+// Arrotondo il prezzo del biglietto al centesimo di euro
+ticketPrice = ticketPrice.toFixed(2);
 
-// STAMPO IL PREZZO CON UN ARROTONDAMENTO AL CENTESIMO DI EURO
-
+// OUTPUT - STAMPO IL PREZZO DEL BIGLIETTO
+document.getElementById('price').innerHTML = "Il prezzo del tuo biglietto è di €" + ticketPrice;
